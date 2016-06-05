@@ -43,6 +43,7 @@ public final class Main extends javax.swing.JFrame {
         btnConstruye = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         areaInforme = new javax.swing.JTextArea();
+        tiempo1 = new componentetiempo.Tiempo();
         imagenD = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
@@ -51,6 +52,7 @@ public final class Main extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Acerca de");
         setForeground(java.awt.Color.red);
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnEligeCafe.setBackground(new java.awt.Color(51, 51, 51));
@@ -72,11 +74,15 @@ public final class Main extends javax.swing.JFrame {
         });
         getContentPane().add(btnConstruye, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 490, -1, -1));
 
+        areaInforme.setEditable(false);
         areaInforme.setColumns(20);
         areaInforme.setRows(5);
         jScrollPane1.setViewportView(areaInforme);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 10, 160, 250));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 40, 160, 280));
+
+        tiempo1.setTamanioFuente(12);
+        getContentPane().add(tiempo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 0, 160, -1));
 
         imagenD.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/cafe.jpg"))); // NOI18N
         imagenD.setToolTipText("");
@@ -194,6 +200,7 @@ public final class Main extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JScrollPane jScrollPane1;
+    private componentetiempo.Tiempo tiempo1;
     // End of variables declaration//GEN-END:variables
 
 }

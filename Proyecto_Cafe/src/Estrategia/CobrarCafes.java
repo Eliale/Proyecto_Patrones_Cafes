@@ -26,6 +26,7 @@ public abstract class CobrarCafes {
         boolean acepta = cobrar.cobrar();
         if(acepta == true){
             JOptionPane.showMessageDialog(null,"Exito en el cobro");
+            
         }else{
             JOptionPane.showMessageDialog(null,"Error en el cobro");
         }

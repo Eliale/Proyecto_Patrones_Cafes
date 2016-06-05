@@ -5,7 +5,7 @@
  */
 package Observador;
 
-import proyecto_cafe.Main;
+import java.util.Date;
 import proyecto_cafe.Main;
 
 /**
@@ -35,10 +35,13 @@ public class GranHermano implements Observador, MonitorElemento {
 
     @Override
     public void Telepantalla() {
-        String cadena =("Gran Hermano Informa : " + "\nCafe " + nombre + "\nCosto total " + costo_total + "\nCosto Unitario " + costo_unitario
+        String cadena = ("Gran Hermano Informa :\n " + getFechaActual() + "\nCafe " + nombre + "\nCosto total " + costo_total + "\nCosto Unitario " + costo_unitario
                 + "\nCantidad " + cantidad);
-        
-        Main.areaInforme.append(cadena+"\n");
+
+        Main.areaInforme.append(cadena + "\n");
     }
 
+    private String getFechaActual() {
+        return new Date().toString();
+    }
 }

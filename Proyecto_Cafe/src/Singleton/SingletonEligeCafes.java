@@ -372,6 +372,7 @@ public class SingletonEligeCafes extends javax.swing.JInternalFrame implements S
         if (radEfectivo.isSelected()) {
             Efectivo ce = new Efectivo(total_pagar);
             ce.mostrar_pago();
+            
         } else {
             Tarjetas ct = new Tarjetas(total_pagar);
             ct.mostrar_pago();
