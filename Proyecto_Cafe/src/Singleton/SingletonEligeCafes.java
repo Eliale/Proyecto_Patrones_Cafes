@@ -20,7 +20,6 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import proyecto_cafe.Main;
-import proyecto_cafe.Main;
 
 /**
  *
@@ -368,7 +367,7 @@ public class SingletonEligeCafes extends javax.swing.JInternalFrame implements S
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAceptaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptaActionPerformed
-
+        total_pagar = costo_unidad * Integer.parseInt(txtCantidad.getText());
         if (radEfectivo.isSelected()) {
             Efectivo ce = new Efectivo(total_pagar);
             ce.mostrar_pago();
@@ -412,6 +411,11 @@ public class SingletonEligeCafes extends javax.swing.JInternalFrame implements S
             int fila = tablaResultado.getSelectedRow();
             costo_unidad = Float.parseFloat(tablaResultado.getValueAt(fila, 2).toString());
             etiElegido.setText(tablaResultado.getValueAt(fila, 1).toString());
+            if(!txtCantidad.getText().isEmpty()){
+                total_pagar = costo_unidad * Integer.parseInt(txtCantidad.getText());
+                txtTotalPagar.setText("$ " + total_pagar);
+            }
+            txtTotalPagar.setText("$ " + total_pagar);
             cambiosMedicion();
         }
     }//GEN-LAST:event_tablaResultadoMousePressed
@@ -419,6 +423,8 @@ public class SingletonEligeCafes extends javax.swing.JInternalFrame implements S
     private void txtCantidadKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCantidadKeyReleased
         total_pagar = costo_unidad * Integer.parseInt(txtCantidad.getText());
         txtTotalPagar.setText("$ " + total_pagar);
+        
+        cambiosMedicion();
 
     }//GEN-LAST:event_txtCantidadKeyReleased
 

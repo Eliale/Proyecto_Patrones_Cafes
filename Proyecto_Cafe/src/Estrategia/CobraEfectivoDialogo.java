@@ -5,26 +5,29 @@
  */
 package Estrategia;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.text.BadLocationException;
 
 /**
  *
  * @author Eli
  */
 public class CobraEfectivoDialogo extends javax.swing.JDialog {
-
+    
     public static Float total;
-
+    
     public CobraEfectivoDialogo(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
     }
-
+    
     public Float getDato() {
         float dato = 0;
-        if (!componenteTextoRango1.getDato().isEmpty()) {
-            dato = Float.parseFloat(componenteTextoRango1.getDato());
-
+        if (!datos.getText().isEmpty()) {
+            dato = Float.parseFloat(datos.getText());
+            
         }
         return dato;
     }
@@ -39,26 +42,31 @@ public class CobraEfectivoDialogo extends javax.swing.JDialog {
     private void initComponents() {
 
         jLabel2 = new javax.swing.JLabel();
-        componenteTextoRango1 = new componentetexto.componenteTextoRango();
         jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         total_eti = new javax.swing.JLabel();
+        datos = new javax.swing.JTextField();
+        jPanel1 = new javax.swing.JPanel();
+        btn1 = new javax.swing.JButton();
+        btn2 = new javax.swing.JButton();
+        btn3 = new javax.swing.JButton();
+        btn4 = new javax.swing.JButton();
+        btn5 = new javax.swing.JButton();
+        btn6 = new javax.swing.JButton();
+        btn7 = new javax.swing.JButton();
+        btn8 = new javax.swing.JButton();
+        btn9 = new javax.swing.JButton();
+        btn0 = new javax.swing.JButton();
+        btnc = new javax.swing.JButton();
+        btnce = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 3, 24)); // NOI18N
         jLabel2.setText("Ingrese Efectivo");
 
-        componenteTextoRango1.setDefineTitulo("Monto");
-        componenteTextoRango1.setNumeros(true);
-        componenteTextoRango1.setRango(new int[] {0, 100000000});
-        componenteTextoRango1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                componenteTextoRango1MouseEntered(evt);
-            }
-        });
-
-        jButton1.setText("Salir");
+        jButton1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jButton1.setText("Cobrar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -67,6 +75,148 @@ public class CobraEfectivoDialogo extends javax.swing.JDialog {
 
         jLabel1.setText("Total");
 
+        datos.setBackground(new java.awt.Color(51, 51, 51));
+        datos.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
+        datos.setForeground(new java.awt.Color(102, 204, 0));
+        datos.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        datos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                datosMouseEntered(evt);
+            }
+        });
+        datos.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                datosKeyTyped(evt);
+            }
+        });
+
+        jPanel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jPanel1MouseEntered(evt);
+            }
+        });
+        jPanel1.setLayout(new java.awt.GridLayout(4, 3));
+
+        btn1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btn1.setForeground(new java.awt.Color(51, 51, 255));
+        btn1.setText("1");
+        btn1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btn1);
+
+        btn2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btn2.setForeground(new java.awt.Color(51, 51, 255));
+        btn2.setText("2");
+        btn2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn2ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btn2);
+
+        btn3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btn3.setForeground(new java.awt.Color(51, 51, 255));
+        btn3.setText("3");
+        btn3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn3ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btn3);
+
+        btn4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btn4.setForeground(new java.awt.Color(51, 51, 255));
+        btn4.setText("4");
+        btn4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn4ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btn4);
+
+        btn5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btn5.setForeground(new java.awt.Color(51, 51, 255));
+        btn5.setText("5");
+        btn5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn5ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btn5);
+
+        btn6.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btn6.setForeground(new java.awt.Color(51, 51, 255));
+        btn6.setText("6");
+        btn6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn6ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btn6);
+
+        btn7.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btn7.setForeground(new java.awt.Color(51, 51, 255));
+        btn7.setText("7");
+        btn7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn7ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btn7);
+
+        btn8.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btn8.setForeground(new java.awt.Color(51, 51, 255));
+        btn8.setText("8");
+        btn8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn8ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btn8);
+
+        btn9.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btn9.setForeground(new java.awt.Color(51, 51, 255));
+        btn9.setText("9");
+        btn9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn9ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btn9);
+
+        btn0.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btn0.setForeground(new java.awt.Color(51, 51, 255));
+        btn0.setText("0");
+        btn0.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn0ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btn0);
+
+        btnc.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btnc.setForeground(new java.awt.Color(51, 204, 0));
+        btnc.setText("C");
+        btnc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btncActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnc);
+
+        btnce.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btnce.setForeground(new java.awt.Color(255, 0, 0));
+        btnce.setText("CE");
+        btnce.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnceActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnce);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -74,38 +224,44 @@ public class CobraEfectivoDialogo extends javax.swing.JDialog {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(73, 73, 73)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel1)
-                        .addGap(18, 18, 18)
-                        .addComponent(total_eti, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(64, 64, 64)
-                                .addComponent(componenteTextoRango1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addContainerGap()
+                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(149, 149, 149)
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                                .addContainerGap()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(34, 34, 34))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel1)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(total_eti, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(datos, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel1)
-                            .addComponent(total_eti, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(28, 28, 28)
-                .addComponent(componenteTextoRango1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34)
-                .addComponent(jButton1)
-                .addContainerGap(37, Short.MAX_VALUE))
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(total_eti, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(2, 2, 2)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(datos, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 206, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
@@ -119,10 +275,85 @@ public class CobraEfectivoDialogo extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void componenteTextoRango1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_componenteTextoRango1MouseEntered
-        total_eti.setText("$" + total);
-    }//GEN-LAST:event_componenteTextoRango1MouseEntered
+    private void datosKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_datosKeyTyped
+        char c = evt.getKeyChar();
+        try {
+            if (Character.isLetter(c)) {
+                evt.consume();
+                getToolkit().beep();
+            }
+        } catch (Exception e) {
+        }
 
+    }//GEN-LAST:event_datosKeyTyped
+
+    private void datosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_datosMouseEntered
+        total_eti.setText("$" + total);
+    }//GEN-LAST:event_datosMouseEntered
+
+    private void btn0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn0ActionPerformed
+        datos.setText(datos.getText() + "0");
+    }//GEN-LAST:event_btn0ActionPerformed
+
+    private void btn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn1ActionPerformed
+        datos.setText(datos.getText() + "1");
+    }//GEN-LAST:event_btn1ActionPerformed
+
+    private void btn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn2ActionPerformed
+        datos.setText(datos.getText() + "2");
+    }//GEN-LAST:event_btn2ActionPerformed
+
+    private void btn3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn3ActionPerformed
+        datos.setText(datos.getText() + "3");
+    }//GEN-LAST:event_btn3ActionPerformed
+
+    private void btn4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn4ActionPerformed
+        datos.setText(datos.getText() + "4");
+    }//GEN-LAST:event_btn4ActionPerformed
+
+    private void btn5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn5ActionPerformed
+        datos.setText(datos.getText() + "5");
+    }//GEN-LAST:event_btn5ActionPerformed
+
+    private void btn6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn6ActionPerformed
+        datos.setText(datos.getText() + "6");
+    }//GEN-LAST:event_btn6ActionPerformed
+
+    private void btn7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn7ActionPerformed
+        datos.setText(datos.getText() + "7");
+    }//GEN-LAST:event_btn7ActionPerformed
+
+    private void btn8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn8ActionPerformed
+        datos.setText(datos.getText() + "8");
+    }//GEN-LAST:event_btn8ActionPerformed
+
+    private void btn9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn9ActionPerformed
+        datos.setText(datos.getText() + "9");
+    }//GEN-LAST:event_btn9ActionPerformed
+
+    private void btnceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnceActionPerformed
+        datos.setText(null);
+    }//GEN-LAST:event_btnceActionPerformed
+
+    private void btncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncActionPerformed
+        try {
+            int tam = datos.getText().length() - 1;
+            if (tam >= 1) {
+                String t = datos.getText(0, tam);
+                datos.setText(t);
+            } else {
+                datos.setText(null);
+            }
+            
+        } catch (BadLocationException ex) {
+            Logger.getLogger(CobraEfectivoDialogo.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btncActionPerformed
+
+    private void jPanel1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MouseEntered
+        total_eti.setText("$" + total);
+    }//GEN-LAST:event_jPanel1MouseEntered
+    
     public float getDineroFaltante() {
         return total - getDato();
     }
@@ -170,10 +401,23 @@ public class CobraEfectivoDialogo extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private componentetexto.componenteTextoRango componenteTextoRango1;
+    private javax.swing.JButton btn0;
+    private javax.swing.JButton btn1;
+    private javax.swing.JButton btn2;
+    private javax.swing.JButton btn3;
+    private javax.swing.JButton btn4;
+    private javax.swing.JButton btn5;
+    private javax.swing.JButton btn6;
+    private javax.swing.JButton btn7;
+    private javax.swing.JButton btn8;
+    private javax.swing.JButton btn9;
+    private javax.swing.JButton btnc;
+    private javax.swing.JButton btnce;
+    private javax.swing.JTextField datos;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel total_eti;
     // End of variables declaration//GEN-END:variables
 }

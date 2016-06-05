@@ -49,6 +49,7 @@ public class SingletonContruyeCafe extends javax.swing.JInternalFrame implements
     private String nombre_base;
     private boolean cajeta, oreo, panna;
     private ArrayList observadores;
+    String ingredientes;
 
     protected SingletonContruyeCafe() {
         numIns++;
@@ -187,6 +188,8 @@ public class SingletonContruyeCafe extends javax.swing.JInternalFrame implements
 
         panel.setLayout(new java.awt.GridLayout(1, 0));
 
+        btnCajeta.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnCajeta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/cajeta.jpg"))); // NOI18N
         btnCajeta.setText("Cajeta");
         btnCajeta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -195,6 +198,7 @@ public class SingletonContruyeCafe extends javax.swing.JInternalFrame implements
         });
         panel.add(btnCajeta);
 
+        btnPanna.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/panna.png"))); // NOI18N
         btnPanna.setText("Panna");
         btnPanna.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -203,6 +207,7 @@ public class SingletonContruyeCafe extends javax.swing.JInternalFrame implements
         });
         panel.add(btnPanna);
 
+        btnOreo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/oreo.jpeg"))); // NOI18N
         btnOreo.setText("Oreo");
         btnOreo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -214,6 +219,9 @@ public class SingletonContruyeCafe extends javax.swing.JInternalFrame implements
         jLabel3.setText("Cantidad: ");
 
         txtCantidad.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtCantidadKeyReleased(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtCantidadKeyTyped(evt);
             }
@@ -438,7 +446,7 @@ public class SingletonContruyeCafe extends javax.swing.JInternalFrame implements
         // Existen 7 combinaciones posibles creo xD
         // Cafes con un ingrediente extra
 
-        String ingredientes = "Ingredientes : ";
+         ingredientes = "Ingredientes : ";
 
         if (oreo == true && cajeta == false && panna == false) {
             Cafe cafe_o = new Oreo(base);
@@ -522,7 +530,17 @@ public class SingletonContruyeCafe extends javax.swing.JInternalFrame implements
             evt.consume();
             JOptionPane.showMessageDialog(rootPane, "Ingresa numeros", "Tipo de dato erroneo", JOptionPane.WARNING_MESSAGE);
         }
+        
     }//GEN-LAST:event_txtCantidadKeyTyped
+
+    private void txtCantidadKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCantidadKeyReleased
+           etiPrecio_Decorado.setText("$ " + costo_decorado);
+        txtTotalPagar.setText("$ " + costo_decorado * obtenCantidad());
+        total_pagar = costo_decorado * obtenCantidad();
+        
+        cambiosMedicion();
+        
+    }//GEN-LAST:event_txtCantidadKeyReleased
 
     private int obtenCantidad() {
         int cantidad = 0;
